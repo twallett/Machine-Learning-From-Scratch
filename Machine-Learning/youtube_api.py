@@ -8,7 +8,7 @@ import json
 api_key = 'AIzaSyCbJyx1zklwXS0bIXbvUnGtAV8-aZw036M'
 
 # Define video id
-video_id = 'liJVSwOiiwg'
+video_id = 'lW508pBeih8'
 
 # Construct API request URL
 url = f'https://www.googleapis.com/youtube/v3/videos?part=snippet&id={video_id}&key={api_key}'
@@ -30,6 +30,7 @@ df = pd.DataFrame(video_data, index=[0])
 
 # Preview DataFrame
 print(df.head())
+
 # %%
 import requests
 import json
@@ -38,12 +39,12 @@ import json
 api_key = 'AIzaSyCbJyx1zklwXS0bIXbvUnGtAV8-aZw036M'
 
 # Define the channel id
-channel_id = 'RedFrostMotivation'
+channel_id = 'UCXD5aOFDPO1W264sJvYc85Q'
 
 # Define the maxResults parameter to limit the number of results returned
-max_results = 10
+max_results = 100
 
-# Construct API request URL
+# Construct API request URL to search for videos
 url = f'https://www.googleapis.com/youtube/v3/search?part=id&channelId={channel_id}&type=video&maxResults={max_results}&key={api_key}'
 
 # Make API request
@@ -61,7 +62,7 @@ if response.status_code == 200:
     video_id_string = ','.join(video_ids)
 
     # Construct another API request URL to retrieve the video details
-    url = f'https://www.googleapis.com/youtube/v3/videos?part=snippet&id={video_id_string}&key={api_key}'
+    url = f'https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id={video_id_string}&key={api_key}'
 
     # Make another API request
     response = requests.get(url)
@@ -78,6 +79,9 @@ if response.status_code == 200:
             video['title'] = item['snippet']['title']
             video['description'] = item['snippet']['description']
             video['published_at'] = item['snippet']['publishedAt']
+            video['views'] = item['statistics']['viewCount']
+            video['likes'] = item['statistics']['likeCount']
+            video['comments'] = item['statistics']['commentCount']
             videos.append(video)
 
         # Convert list of dictionaries to a Pandas DataFrame
@@ -90,5 +94,16 @@ if response.status_code == 200:
         print("Error: Failed to retrieve video details")
 else:
     print("Error: Failed to search for videos")
+# %%
+
+import matplotlib.pyplot as plt
+
+
+df.published_at = pd.to_datetime(df.published_at)
+df.likes = df.likes.astype(int)
+df.views = df.views.astype(int)
+
+
+plt.plot(df.index, df.views)
 
 # %%
