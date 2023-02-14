@@ -181,3 +181,4 @@ plt.plot(q6_v_error_list)
 plt.show()
 
 # %%
+#rand
