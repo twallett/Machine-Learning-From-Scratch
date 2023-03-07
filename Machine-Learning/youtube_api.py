@@ -8,7 +8,7 @@ import json
 api_key = 'AIzaSyCbJyx1zklwXS0bIXbvUnGtAV8-aZw036M'
 
 # Define video id
-video_id = 'lW508pBeih8'
+video_id = 'PWJNEeTTpak'
 
 # Construct API request URL
 url = f'https://www.googleapis.com/youtube/v3/videos?part=snippet&id={video_id}&key={api_key}'
@@ -30,6 +30,22 @@ df = pd.DataFrame(video_data, index=[0])
 
 # Preview DataFrame
 print(df.head())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # %%
 import requests
@@ -82,6 +98,7 @@ if response.status_code == 200:
             video['views'] = item['statistics']['viewCount']
             video['likes'] = item['statistics']['likeCount']
             video['comments'] = item['statistics']['commentCount']
+            video['thumbnails'] = item['snippet']['thumbnails']
             videos.append(video)
 
         # Convert list of dictionaries to a Pandas DataFrame
