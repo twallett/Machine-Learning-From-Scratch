@@ -168,4 +168,5 @@ ax.axline((0, db2_int_p), slope=db2_slope_p)
 
 plt.show()
 
-print(f"One big difference between these two network architectures are the transfer limits that are used. For the Adaline network the purelin function outputs a continuous number, hence its sum square errors continue to converge to zero in a continuous fashion. On the other hand, the perceptron uses the hardlim transfer function which outputs discrete numbers 0 or 1, which are evidenced in the sum square errors. ")
+print(f"One big difference between these two network architectures are the transfer functions that are used. For the Adaline network the purelin function outputs a continuous number, hence its sum square errors continue to converge to zero in a continuous fashion. On the other hand, the perceptron uses the hardlim transfer function which outputs discrete numbers 0 or 1, which are evidenced in the discrete steps in the sum square errors. ")
+print(f"In terms of the decision boundaries, the Adaline network has a decision boundary that looks to minimize the least sum of squares, which the perceptron does not care about.")
