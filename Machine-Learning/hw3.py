@@ -1,13 +1,13 @@
 #%%
 import numpy as np
 import matplotlib.pyplot as plt
-from sympy import symbols, diff
+import sympy as sp
 from numpy import linalg as LA
-
+from matplotlib import animation
 
 
 def f(x, y):
-    return 5*x**2 - 6*x*y + 5*y**2 + 4*x + 4*y
+    return x**2 + y**2 
 
 x = np.linspace(-2,2,20)
 y = np.linspace(-2,2,20)
@@ -24,31 +24,142 @@ ax = plt.axes(projection ='3d')
 
 ax.plot_surface(X, Y, Z, cmap = plt.cm.CMRmap, edgecolor ='green')
 
-ax.view_init(20, 45)
+ax.view_init(40, 45)
 plt.show()
 
 # %%
 
-f = 5*x**2 - 6*x*y + 5*y**2 + 4*x + 4*y
+def steepest_descent(function, initial_condition, alpha, n_iter):
+    
+    hessian_sym = sp.hessian(function, [x,y])
+    hessian  = np.array(hessian_sym, dtype= int)
+    
+    gradient = np.array([sp.diff(function, x).replace(x,0).replace(y,0), sp.diff(function, y).replace(x,0).replace(y,0)], dtype=float).reshape(2,1)
+    stationary_point = -1* (LA.inv(hessian) @ gradient)
+    
+    x_k_history = []
+    
+    for i in range(n_iter):
+        
+       x_k = initial_condition - (alpha * gradient)
+    
+       gradient = np.array(([sp.diff(function, x).replace(x, x_k[0][0]).replace(y, x_k[1][0])], [sp.diff(function, y).replace(x, x_k[0][0]).replace(y, x_k[1][0])]), dtype=float).reshape(2,1)
+       
+       print(gradient)
+       
+       if np.abs(np.linalg.norm(gradient)) < 1e-6:
+        break
+       
+       initial_condition = x_k
+       
+       x_k_history.append(x_k)
+    return np.array(x_k_history), stationary_point
 
-x, y = symbols('x y', real = True)
+x, y = sp.symbols('x y', real=True)
 
-hessian  = np.matrix(((diff(f,x,x),diff(f,x,y)), (diff(f,y,x),diff(f,y,y)))).astype(int)
+function = x**2 + y**2
+init = np.array([[3], 
+                 [-3]], dtype='float64')
 
-values, vectors = LA.eig(hessian)
-print(values, vectors[0], vectors[1])
-
-gradient = np.matrix([[diff(f,x).replace(x,0).replace(y,0)], 
-                      [diff(f,y).replace(x,0).replace(y,0)]])
-
-stationary_point = -1 * np.dot((LA.inv(hessian)), gradient)
-print(stationary_point)
+x_k, stationary = steepest_descent(function, init, 0.01, 200)
 
 # %%
-# xk+1 = xk - alpha * gradient
 
-# def gradient_descent(xk, alpha):
+def f(x, y):
+    return x**2 + y**2
 
-alpha = 0.01 
+x = np.linspace(-3,3,20)
+y = np.linspace(-3,3,20)
+X, Y = np.meshgrid(x, y)
+Z = f(X,Y)
 
-x_k = 
+plt.contour(X,Y,Z)
+
+
+# %%
+
+fig1, ax1 = plt.subplots(figsize = (7,7))
+ax1.contour(X, Y, Z, 100, cmap = 'jet')
+ax1.set_title(f"Steepest descent of function: {function}")
+
+line, = ax1.plot([], [], 'r', label = 'Gradient descent', lw = 1.5)
+point, = ax1.plot([], [], '*', color = 'red', markersize = 4)
+value_display = ax1.text(0.02, 0.02, '', transform=ax1.transAxes)
+
+def init_1():
+    line.set_data([], [])
+    point.set_data([], [])
+    value_display.set_text('')
+
+    return line, point, value_display
+
+def animate_1(i):
+    # Animate line
+    line.set_data(x_k[:i,0], x_k[:i, 1])
+    
+    # Animate points
+    point.set_data(x_k[i, 0], x_k[i, 1])
+
+    return line, point, value_display
+
+ax1.legend(loc = 1)
+
+anim1 = animation.FuncAnimation(fig1, animate_1, init_func=init_1, frames=len(x_k), interval=20,repeat_delay=60, blit=True)
+
+
+anim1.save('Steepest_descent.gif', writer='ffmpeg', fps =30)
+
+                               
+# %%
+z_history = np.zeros(len(x_k))
+
+for i in range(len(x_k)):
+    z_history[i] = x_k[i][0]**2 + x_k[i][1]**2
+
+z_history = z_history.reshape((200))
+
+new_x_k = x_k.reshape((len(x_k) * 2))
+
+x_history = new_x_k[::2]
+y_history = new_x_k[1::2]
+
+
+#%%
+fig2 = plt.figure(figsize = (7,7))
+ax2 = plt.axes(projection ='3d')
+ax2.set_xlabel('X')
+ax2.set_ylabel('Y')
+ax2.set_zlabel('Z')
+
+ax2.plot_surface(X, Y, Z, cmap = plt.cm.CMRmap, edgecolor ='green')
+
+ax2.view_init(40, 45)
+
+line, = ax2.plot([], [], [], 'r', label = 'Gradient descent', lw = 1.5)
+point, = ax2.plot([], [], [], '*', color = 'red', markersize = 4)
+
+
+def init_2():
+    line.set_data([], [])
+    line.set_3d_properties([])
+    point.set_data([], [])
+    point.set_3d_properties([])
+
+    return line, point, 
+
+def animate_2(i):
+    line.set_data(x_history[:i], y_history[:i])
+    line.set_3d_properties(z_history[:i])
+    # Animate points
+    point.set_data(x_history[i], y_history[i])
+    point.set_3d_properties(z_history[i])
+    return line, point,
+
+ax2.legend(loc = 1)
+
+anim1 = animation.FuncAnimation(fig2, animate_2, init_func=init_2, frames=len(x_k), interval=20,repeat_delay=60, blit=True)
+plt.show()
+
+anim1.save('Steepest_descent.mp4', writer='ffmpeg', fps =10)
+
+#%%
