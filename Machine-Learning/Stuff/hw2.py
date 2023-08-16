@@ -150,7 +150,5 @@ ax.plot_surface(X, Y, Z, cmap = plt.cm.CMRmap, edgecolor ='green')
 ax.view_init(40, 45)
 plt.show()
 
-from nndesigndemos import nndtoc
 
-nndtoc()
 # %%
