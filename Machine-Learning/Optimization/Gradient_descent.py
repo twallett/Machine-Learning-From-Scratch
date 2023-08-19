@@ -35,6 +35,7 @@ def steepest_descent(function, initial_condition, alpha, n_iter):
     hessian  = np.array(hessian_sym, dtype= int)
     
     gradient = np.array([sp.diff(function, x).replace(x,0).replace(y,0), sp.diff(function, y).replace(x,0).replace(y,0)], dtype=float).reshape(2,1)
+    
     stationary_point = -1* (LA.inv(hessian) @ gradient)
     
     x_k_history = []
@@ -45,14 +46,13 @@ def steepest_descent(function, initial_condition, alpha, n_iter):
     
        gradient = np.array(([sp.diff(function, x).replace(x, x_k[0][0]).replace(y, x_k[1][0])], [sp.diff(function, y).replace(x, x_k[0][0]).replace(y, x_k[1][0])]), dtype=float).reshape(2,1)
        
-       print(gradient)
-       
-       if np.abs(np.linalg.norm(gradient)) < 1e-6:
-        break
-       
        initial_condition = x_k
        
        x_k_history.append(x_k)
+       
+       if np.abs(np.linalg.norm(gradient)) < 1e-6:
+        break
+    
     return np.array(x_k_history), stationary_point
 
 x, y = sp.symbols('x y', real=True)

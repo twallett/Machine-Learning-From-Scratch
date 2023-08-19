@@ -13,63 +13,74 @@ targets = f(np.linspace(-2,2)).reshape(-1,1)
 #%%
 
 def logsig(n):
-    n = n.astype(float)
-    result = np.empty_like(n)
-    for i in range(n.shape[0]):
-        result[i,0] = 1 / (1 + np.exp(-n[i,0]))
-    return result
+    return 1 / (1 + np.exp(-n))
 
-def MLP_Regressor(inputs_, targets_, alpha, s_size, n_iter):
+def MLP_Regressor(inputs_, targets_, alpha = 1e-04, s_size = 500, batch = 32, n_iter = 200):
         
-    w_init_1 = np.random.rand(s_size, inputs.shape[1]) * 0.01
-    b_init_1 = np.random.rand(s_size, 1) * 0.01
+    w_init_1 = np.random.rand(inputs.shape[1], s_size) 
+    b_init_1 = np.random.rand(1, s_size) 
 
-    w_init_2 = np.random.rand(targets.shape[1], s_size)* 0.01
-    b_init_2 = np.random.rand(targets.shape[1], 1)* 0.01
+    w_init_2 = np.random.rand(s_size, 1) 
+    b_init_2 = np.random.rand(1, 1) 
 
     error_l = [] 
-    output_l = []
+    output_l = np.zeros((len(inputs_), 1)) 
 
     for j in range(n_iter):
-        for i in range(len(inputs_)):
+        for i in range(0, len(inputs_), batch):
+            
+            # BATCH RANGE 
+            
+            batch_start = i
+            batch_end = i + batch
             
             # FEEDFOWARD PART
         
-            a_init = inputs_[i:i+1].T
+            a_init = inputs_[batch_start:batch_end]
 
-            n1 = (w_init_1 @ a_init) + b_init_1
+            n1 = np.dot(a_init, w_init_1) + b_init_1
 
             a1 = logsig(n1)
 
-            a2 = (w_init_2 @ a1) + b_init_2
+            a2 = np.dot(a1, w_init_2) + b_init_2
 
-            target = targets_[i:i+1].T
+            target = targets_[batch_start:batch_end]
 
-            error = ((target - a2)).item()
+            error = (target - a2)
 
             #BACKWARDPROPAGATION
             
-            f_1_1 = (np.ones((s_size,1)) - a1)
-            f_1 = (np.matrix(np.diag([f_1_1[i,0] for i in range(s_size)]))) @ (np.matrix(np.diag([a1[i,0] for i in range(s_size)])))
-
-            s2 = -2 * error
-            s1 = f_1 @ (w_init_2.T * s2)
+            s2_w = -2 * error / batch
+            s2_b = np.sum(s2_w, axis= 0)
             
-            error_l.append(error ** 2)
-            output_l.append(a2)
-                
-            w_init_2 -= (alpha * s2 * a1.T)
-            b_init_2 -= (alpha * s2)
+            s1_a = np.dot(s2_w, w_init_2.T)
+            s1_w = s1_a * (a1 * (1 - a1))
+            s1_b = np.sum(s1_w, axis= 0)
+            
+            w_init_2 -= (alpha * np.dot(a1.T, s2_w)) 
+            b_init_2 -= (alpha * s2_b)
 
-            w_init_1 -= (alpha * s1 @ a_init.T)
-            b_init_1 -= (alpha * s1)
+            w_init_1 -= (alpha * np.dot(a_init.T, s1_w))
+            b_init_1 -= (alpha * s1_b)
+            
+            error_l.append(np.mean(error) ** 2)
+            output_l[batch_start:batch_end] = a2
             
     return error_l, output_l 
-        
+
 error, output = MLP_Regressor(inputs,
-                              targets,
-                              alpha= 1e-2,
-                              s_size= 2, 
-                              n_iter=100)
+                              targets, 
+                              batch= 8,
+                              n_iter=100000)
 
 
+#%%
+
+plt.plot(np.array(error).reshape(-1,1))
+plt.show()
+
+plt.plot(output)
+plt.plot(targets)
+plt.show()
+
+# %%
