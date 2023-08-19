@@ -1,5 +1,4 @@
 #%%
-
 import numpy as np
 import matplotlib.pyplot as plt
 import math
@@ -9,22 +8,37 @@ def f(x):
 
 inputs = np.linspace(-2,2).reshape(-1,1)
 targets = f(np.linspace(-2,2)).reshape(-1,1)
-
 #%%
 
 def logsig(n):
     return 1 / (1 + np.exp(-n))
 
-def MLP_Regressor(inputs_, targets_, alpha = 1e-04, s_size = 500, batch = 32, n_iter = 200):
-        
-    w_init_1 = np.random.rand(inputs.shape[1], s_size) 
-    b_init_1 = np.random.rand(1, s_size) 
+def initialize_weights(layers_size):
+    weights = [np.random.randn(layers_size[i], layers_size[i + 1]) for i in range(len(layers_size) - 1)]
+    biases = [np.zeros((1, layers_size[i + 1])) for i in range(len(layers_size) - 1)]
+    return weights, biases
 
-    w_init_2 = np.random.rand(s_size, 1) 
-    b_init_2 = np.random.rand(1, 1) 
+def forward_propagation(inputs, weights, biases):
+    activations = [inputs]
+    for i in range(len(weights) - 1):
+        n = np.dot(activations[i], weights[i]) + biases[i]
+        a = logsig(n)
+        activations.append(a)
+    z_output = np.dot(activations[-1], weights[-1]) + biases[-1]
+    a_output = z_output
+    activations.append(a_output)
+    return activations
+
+def MLP_Regressor(inputs_, targets_, hidden_sizes = [100, 100], alpha = 1e-04, batch = 32, n_iter = 1000):
+    
+    input_size = inputs_.shape[1]
+    output_size = targets_.shape[1]
+    layers_sizes = [input_size] + hidden_sizes + [output_size]
+    
+    weights, biases = initialize_weights(layers_sizes)
 
     error_l = [] 
-    output_l = np.zeros((len(inputs_), 1)) 
+    output_l = []
 
     for j in range(n_iter):
         for i in range(0, len(inputs_), batch):
@@ -36,51 +50,41 @@ def MLP_Regressor(inputs_, targets_, alpha = 1e-04, s_size = 500, batch = 32, n_
             
             # FEEDFOWARD PART
         
-            a_init = inputs_[batch_start:batch_end]
+            input_batch = inputs_[batch_start:batch_end]
+            target_batch = targets_[batch_start:batch_end]
 
-            n1 = np.dot(a_init, w_init_1) + b_init_1
-
-            a1 = logsig(n1)
-
-            a2 = np.dot(a1, w_init_2) + b_init_2
-
-            target = targets_[batch_start:batch_end]
-
-            error = (target - a2)
+            activations = forward_propagation(input_batch, weights, biases)
+            a_output = activations[-1]
+        
+            # LOSS CALCULATION
+            error = np.mean((target_batch - a_output) ** 2)
+            
+            error_l.append(error)
+            output_l.append(a_output)
 
             #BACKWARDPROPAGATION
             
-            s2_w = -2 * error / batch
-            s2_b = np.sum(s2_w, axis= 0)
-            
-            s1_a = np.dot(s2_w, w_init_2.T)
-            s1_w = s1_a * (a1 * (1 - a1))
-            s1_b = np.sum(s1_w, axis= 0)
-            
-            w_init_2 -= (alpha * np.dot(a1.T, s2_w)) 
-            b_init_2 -= (alpha * s2_b)
-
-            w_init_1 -= (alpha * np.dot(a_init.T, s1_w))
-            b_init_1 -= (alpha * s1_b)
-            
-            error_l.append(np.mean(error) ** 2)
-            output_l[batch_start:batch_end] = a2
+            gradients = [-2 * (target_batch - a_output) / batch]
+            for i in range(len(weights) - 2, -1, -1):
+                derivative_n = gradients[-1].dot(weights[i+1].T) * activations[i+1] * (1 - activations[i+1])
+                derivative_weight = np.dot(activations[i].T, derivative_n)
+                derivative_bias = np.sum(derivative_n, axis= 0)
+                gradients.append(derivative_n)
+                weights[i] -= alpha * derivative_weight
+                biases[i] -= alpha * derivative_bias
             
     return error_l, output_l 
 
 error, output = MLP_Regressor(inputs,
-                              targets, 
-                              batch= 8,
-                              n_iter=100000)
+                              targets,
+                              alpha=0.05)
 
+# %%
 
-#%%
-
-plt.plot(np.array(error).reshape(-1,1))
-plt.show()
-
-plt.plot(output)
+plt.plot(np.concatenate(output)[-50:])
 plt.plot(targets)
 plt.show()
 
+plt.plot(error)
+plt.show()
 # %%
