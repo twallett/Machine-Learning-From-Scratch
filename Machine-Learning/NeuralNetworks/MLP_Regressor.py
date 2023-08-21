@@ -29,7 +29,7 @@ def forward_propagation(inputs, weights, biases):
     activations.append(a_output)
     return activations
 
-def MLP_Regressor(inputs_, targets_, hidden_sizes = [100, 100], alpha = 1e-04, batch = 32, n_iter = 1000):
+def MLP_Regressor(inputs_, targets_, hidden_sizes = [100,100], alpha = 1e-04, batch = 32, n_iter = 1000):
     
     input_size = inputs_.shape[1]
     output_size = targets_.shape[1]
