@@ -22,6 +22,7 @@ Linear Minimization is an optimization technique that involves finding the minim
 
 * $\alpha$: The learning rate.
 * $x_k$: The initial condition.
+* $p_k$: The search direction (or, $-\nabla f(x_k)$)
 * $\nabla f(x_k)$: The gradient.
 * $H_f(x_k)$: The Hessian.
 
@@ -29,7 +30,7 @@ Linear Minimization is an optimization technique that involves finding the minim
 
 Newton's Method is an iterative optimization algorithm that uses second-order derivatives to find the minimum of a function more efficiently than gradient descent.
 
-# $x_{k+1} = x_k - H_f(x_k)^{-1} \nabla f(x_k)$
+# $x_{k+1} = x_k - (H_f(x_k)^{-1} \cdot \nabla f(x_k))$
 
 * $x_k$: The initial condition.
 * $\alpha$: The learning rate.
@@ -41,6 +42,10 @@ Newton's Method is an iterative optimization algorithm that uses second-order de
 The Conjugate Gradient method is used to solve unconstrained optimization problems. It's particularly effective for large-scale optimization tasks.
 
 # $x_{k+1} = x_k + \alpha_k p_k$
+
+* $x_k$: The initial condition.
+* $\alpha$: The learning rate.
+* $p_k$: The search direction (or, $-\nabla f(x_k)$)
 
 Each optimization technique in this subdirectory is explained in detail along with code examples.
 
