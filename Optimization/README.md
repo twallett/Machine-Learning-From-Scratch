@@ -16,18 +16,23 @@ Steepest Descent is an iterative optimization method used to find the minimum of
 
 Linear Minimization is an optimization technique that involves finding the minimum of a linear objective function subject to linear constraints.
 
-Equation for Linear Minimization problem: $\text{minimize } c^T x \text{ subject to } Ax \leq b$
-
-## 3. Newton's Method
-
-Newton's Method is an iterative optimization algorithm that uses second-order derivatives to find the minimum of a function more efficiently than gradient descent.
-
 # $\alpha_k = - \frac{\nabla f(x_k)^T \cdot p_k} {p_k^T \cdot  H_f(x_k) \cdot p_k} $
 
 # $x_{k+1} = x_k - \alpha \nabla f(x_k)$
 
 * $\alpha$: The learning rate.
 * $x_k$: The initial condition.
+* $\nabla f(x_k)$: The gradient.
+* $H_f(x_k)$: The Hessian.
+
+## 3. Newton's Method
+
+Newton's Method is an iterative optimization algorithm that uses second-order derivatives to find the minimum of a function more efficiently than gradient descent.
+
+# $x_{k+1} = x_k - H_f(x_k)^{-1} \nabla f(x_k)$
+
+* $x_k$: The initial condition.
+* $\alpha$: The learning rate.
 * $\nabla f(x_k)$: The gradient.
 * $H_f(x_k)$: The Hessian.
 
