@@ -4,9 +4,9 @@ This repository contains implementations of various machine learning algorithms 
 
 ## Subdirectories
 
-- [Neural Networks](./Neural%20Networks/README.md): This subdirectory contains implementations of different types of neural networks, including Perceptron, ADALINE, MLP Regressor, and MLP Classifier.
+- [Neural Networks](./NeuralNetworks): This subdirectory contains implementations of different types of neural networks, including Perceptron, ADALINE, MLP Regressor, and MLP Classifier.
 
-- [Optimization](./Optimization/README.md): This subdirectory covers various optimization techniques such as Steepest Descent, Linear Minimization, Newton's Method, and Conjugate Gradient method.
+- [Optimization](./Optimization): This subdirectory covers various optimization techniques such as Steepest Descent, Linear Minimization, Newton's Method, and Conjugate Gradient method.
 
 ## Usage
 
