@@ -22,7 +22,14 @@ Equation for Linear Minimization problem: $\text{minimize } c^T x \text{ subject
 
 Newton's Method is an iterative optimization algorithm that uses second-order derivatives to find the minimum of a function more efficiently than gradient descent.
 
-Equation for Newton's Method update: $x_{k+1} = x_k - H_f(x_k)^{-1} \nabla f(x_k)$
+# $\alpha_k = - \frac{\nabla f(x_k)^T \cdot p_k^T} {p_k^T \cdot  H_f(x_k) \cdot p_k} $
+
+# $x_{k+1} = x_k - \alpha \nabla f(x_k)$
+
+* $\alpha$: The learning rate.
+* $x_k$: The initial condition.
+* $\nabla f(x_k)$: The gradient.
+* $H_f(x_k)$: The Hessian.
 
 ## 4. Conjugate Gradient Method
 
