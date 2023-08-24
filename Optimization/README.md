@@ -22,7 +22,7 @@ Linear Minimization is an optimization technique that involves finding the minim
 
 * $\alpha$: The learning rate.
 * $x_k$: The initial condition.
-* $p_k$: The search direction (or, $-\nabla f(x_k)$)
+* $p_k$: The search direction, or $-\nabla f(x_k)$
 * $\nabla f(x_k)$: The gradient.
 * $H_f(x_k)$: The Hessian.
 
@@ -45,7 +45,7 @@ The Conjugate Gradient method is used to solve unconstrained optimization proble
 
 * $x_k$: The initial condition.
 * $\alpha$: The learning rate.
-* $p_k$: The search direction (or, $-\nabla f(x_k)$)
+* $p_k$: The search direction, or $-\nabla f(x_k)$
 
 Each optimization technique in this subdirectory is explained in detail along with code examples.
 
