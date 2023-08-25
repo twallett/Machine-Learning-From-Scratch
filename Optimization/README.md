@@ -52,12 +52,23 @@ Linear Minimization is an optimization technique that involves finding the minim
 
 Newton's Method is an iterative optimization algorithm that uses second-order derivatives to find the minimum of a function more efficiently than gradient descent.
 
-# $x_{k+1} = x_k - (H_f(x_k)^{-1} \cdot \nabla f(x_k))$
+# $\theta_{k+1} = \theta_{k} - (H_f(\theta_{k})^{-1} \cdot \nabla f(\theta_{k}))$
 
-* $x_k$: The initial condition.
+* $\theta_{k}$: The initial condition.
 * $\alpha$: The learning rate.
-* $\nabla f(x_k)$: The gradient.
-* $H_f(x_k)$: The Hessian.
+* $\nabla f(\theta_{k})$: The gradient.
+* $H_f(\theta_{k})$: The Hessian.
+
+<table>
+  <tr>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/Optimization/3_Newtons_method/Newtons_method_contour.gif" alt="First GIF" width="100%">
+    </td>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/Optimization/3_Newtons_method/Newtons_method_surface.gif" alt="Second GIF" width="100%">
+    </td>
+  </tr>
+</table>
 
 ## 4. Conjugate Gradient Method
 
