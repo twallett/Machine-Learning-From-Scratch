@@ -8,14 +8,7 @@ The Perceptron is a fundamental neural network model for binary classification. 
 
 # $n = W \cdot p + b$
 
-```latex
-\[
-\text{hardlim}(n) = \begin{cases}
-    0 & \text{if } n < 0 \\
-    1 & \text{if } n \geq 0
-\end{cases}
-\]
-```
+# $hardlim(n) =$ $\begin{cases} 0 & if \ \ n < 0 1 & if \ \ n \geq 0 \end{cases}$
 
 # $a = hardlim(n)$
 
