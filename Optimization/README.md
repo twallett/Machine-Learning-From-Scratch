@@ -6,7 +6,7 @@ This subdirectory includes implementations and explanations of various optimizat
 
 Steepest Descent is an iterative optimization method used to find the minimum of a function. It involves moving in the direction of the negative gradient.
 
-# $x_{k+1} = x_k - \alpha \nabla f(x_k)$
+# $x_{\theta+1} = x_{\theta} - \alpha \nabla f{\theta}$
 
 * $x_k$: The initial condition.
 * $\alpha$: The learning rate.
