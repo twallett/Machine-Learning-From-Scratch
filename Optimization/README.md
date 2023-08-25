@@ -12,6 +12,10 @@ Steepest Descent is an iterative optimization method used to find the minimum of
 * $\alpha$: The learning rate.
 * $\nabla f(x_k)$: The gradient.
 
+![GIF Description](.Optimization/1_Steepest_descent/Steepest_descent_contour.gif)
+
+![GIF Description](.Optimization/1_Steepest_descent/Steepest_descent_surface.gif)
+
 ## 2. Linear Minimization
 
 Linear Minimization is an optimization technique that involves finding the minimum of a linear objective function subject to linear constraints.
