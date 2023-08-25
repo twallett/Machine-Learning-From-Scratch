@@ -9,9 +9,9 @@
 # * $\nabla f(x_k)$: The gradient.
 # * $H_f(x_k)$: The Hessian.
 
-#### $hardlim(n) = \begin{cases} 0 & if \ \ n < 0 \\ 1 & if \ \ n \geq 0 \end{cases}$
+## $\text{hardlim}(n) = \begin{cases} 0 & \text{if } n < 0 \\ 1 & \text{if } n \geq 0 \end{cases}$
 
 
-# $hardlim(n) = \begin{cases} 0 & \text{if } n < 0, & 1 & \text{if } n \geq 0 \end{cases}$
+# $\{a\}$
 
 # %%
