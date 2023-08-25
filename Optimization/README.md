@@ -40,10 +40,10 @@ Linear Minimization is an optimization technique that involves finding the minim
 <table>
   <tr>
     <td style="width: 50%;">
-      <img src="https://github.com/Twallett/Machine-Learning/blob/main/Optimization/1_Steepest_descent/Steepest_descent_contour.gif" alt="First GIF" width="100%">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/Optimization/2_Linear_minimization/Linear_minimization_contour.gif" alt="First GIF" width="100%">
     </td>
     <td style="width: 50%;">
-      <img src="https://github.com/Twallett/Machine-Learning/blob/main/Optimization/1_Steepest_descent/Steepest_descent_surface.gif" alt="Second GIF" width="100%">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/Optimization/2_Linear_minimization/Linear_minimization_surface.gif" alt="Second GIF" width="100%">
     </td>
   </tr>
 </table>
