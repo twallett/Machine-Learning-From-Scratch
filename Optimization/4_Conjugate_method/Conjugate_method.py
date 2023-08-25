@@ -28,7 +28,6 @@ ax.view_init(40, 45)
 plt.show()
 #%%
 
-
 def linear_minimization(function, initial_condition, n_iter):
     
     hessian_sym = sp.hessian(function, [x,y])
@@ -69,6 +68,7 @@ def linear_minimization(function, initial_condition, n_iter):
 x, y = sp.symbols('x y', real=True)
 
 function = x**2 + x*y + y**2
+function_latex = "$f(\\theta) = x^2 + xy + y^2$"
 
 init = np.array([[1], 
                  [-2.5]], 
@@ -79,10 +79,9 @@ x_k, stationary = linear_minimization(function,
                                       200)
 # %%
 
-
 fig1, ax1 = plt.subplots(figsize = (7,7))
 ax1.contour(X, Y, Z, 100, cmap = 'jet')
-ax1.set_title(f"Steepest descent of function: {function}")
+ax1.set_title(f"Conjugate method contour plot of {function_latex}")
 
 line, = ax1.plot([], [], 'r', label = 'Gradient descent', lw = 1.5)
 point, = ax1.plot([], [], '*', color = 'red', markersize = 4)
@@ -101,6 +100,13 @@ def animate_1(i):
     
     # Animate points
     point.set_data(x_k[i, 0], x_k[i, 1])
+    
+    # Values
+    value_display.set_text(f'$f(\\theta) =${f(x_k[i][0][0], x_k[i][1][0]):.4f}')
+    
+    # Axis
+    plt.ylabel("$Y$")
+    plt.xlabel("$X$")
 
     return line, point, value_display
 
@@ -128,25 +134,26 @@ y_history = new_x_k[1::2]
 #%%
 fig2 = plt.figure(figsize = (7,7))
 ax2 = plt.axes(projection ='3d')
-ax2.set_xlabel('X')
-ax2.set_ylabel('Y')
-ax2.set_zlabel('Z')
+ax2.set_xlabel('$X$')
+ax2.set_ylabel('$Y$')
+ax2.set_zlabel('$Z$')
 
 ax2.plot_surface(X, Y, Z, cmap = plt.cm.CMRmap, edgecolor ='green', alpha = 0.5)
+ax2.set_title(f"Conjugate method surface plot of {function_latex}")
 
 ax2.view_init(40, 165)
 
 line, = ax2.plot([], [], [], 'r', label = 'Gradient descent', lw = 1.5)
 point, = ax2.plot([], [], [], '*', color = 'red', markersize = 4)
-
+value_display = ax2.text(0.02, 0.02, z =0.02, s= '', transform=ax2.transAxes)
 
 def init_2():
     line.set_data([], [])
     line.set_3d_properties([])
     point.set_data([], [])
     point.set_3d_properties([])
-
-    return line, point, 
+    value_display.set_text('')
+    return line, point, value_display 
 
 def animate_2(i):
     line.set_data(x_history[:i], y_history[:i])
@@ -154,7 +161,8 @@ def animate_2(i):
     # Animate points
     point.set_data(x_history[i], y_history[i])
     point.set_3d_properties(z_history[i])
-    return line, point,
+    value_display.set_text(f'$f(\\theta) =${f(x_k[i][0][0], x_k[i][1][0]):.4f}')
+    return line, point, value_display
 
 ax2.legend(loc = 1)
 
