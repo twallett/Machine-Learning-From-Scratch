@@ -6,9 +6,7 @@ This subdirectory contains implementations and explanations of different neural 
 
 The Perceptron is a fundamental neural network model for binary classification. It's based on the concept of weighted inputs and a threshold activation function.
 
-Equation for a Perceptron's output: 
-
-$y = \begin{cases} 1, & \text{if } \sum_{i=1}^{n} w_i x_i + b > \text{threshold} \\ 0, & \text{otherwise} \end{cases}$
+# $ **a** = hardlim(W \cdot p + b) $
 
 ## 2. ADALINE (Adaptive Linear Neuron)
 
