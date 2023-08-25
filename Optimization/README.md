@@ -27,15 +27,15 @@ Steepest Descent is an iterative optimization method used to find the minimum of
 
 Linear Minimization is an optimization technique that involves finding the minimum of a linear objective function subject to linear constraints.
 
-# $\alpha_k = - \frac{\nabla f(x_k)^T \cdot p_k} {p_k^T \cdot  H_f(x_k) \cdot p_k} $
+# $\alpha_k = - \frac{\nabla f(\theta_{k})^T \cdot p_k} {p_k^T \cdot  H_f(\theta_{k}) \cdot p_k} $
 
-# $x_{k+1} = x_k - \alpha \nabla f(x_k)$
+# $\theta_{k+1} = \theta_{k} - \alpha \nabla f(\theta_{k})$
 
 * $\alpha$: The learning rate.
-* $x_k$: The initial condition.
-* $p_k$: The search direction, or $-\nabla f(x_k)$
-* $\nabla f(x_k)$: The gradient.
-* $H_f(x_k)$: The Hessian.
+* $\theta_{k}$: The initial condition.
+* $p_k$: The search direction, or $-\nabla f(\theta_{k})$
+* $\nabla f(\theta_{k})$: The gradient.
+* $H_f(\theta_{k})$: The Hessian.
 
 <table>
   <tr>
