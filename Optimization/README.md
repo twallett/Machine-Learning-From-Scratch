@@ -41,7 +41,13 @@ Newton's Method is an iterative optimization algorithm that uses second-order de
 
 The Conjugate Gradient method is used to solve unconstrained optimization problems. It's particularly effective for large-scale optimization tasks.
 
+# $\alpha_k = - \frac{\nabla f(x_k)^T \cdot p_k} {p_k^T \cdot  H_f(x_k) \cdot p_k} $
+
 # $x_{k+1} = x_k + \alpha_k p_k$
+
+# $\beta_k = \frac{\nabla f(x_k).T \cdot \nabla f(x_k)}{\nabla f(x_{k-1}).T \cdot \nabla f(x_{k-1})}$
+
+# $p_k = -\nabla f(x_k) + \beta_k \cdot p_{k-1}$
 
 * $x_k$: The initial condition.
 * $\alpha$: The learning rate.
