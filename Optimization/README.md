@@ -103,6 +103,10 @@ Each optimization technique in this subdirectory is explained in detail along wi
 
 For a deeper understanding of each method, refer to the corresponding folders in this directory.
 
+## References 
+
+Oklahoma State University–Stillwater. (n.d.). https://hagan.okstate.edu/NNDesign.pdf 
+
 ## License
 
 This portion of the project is licensed under the [MIT License](../LICENSE).
