@@ -8,14 +8,6 @@ The Perceptron is a fundamental neural network model for binary classification. 
 
 # $n = W \cdot p + b$
 
-\[
-1+(-1)^n=
-\begin{cases}
-0, & \text{if $n$ odd}\\
-2, & \text{otherwise}
-\end{cases}
-\]
-
 # $a = hardlim(n)$
 
 # $W^{new} = W^{old} + e \cdot p^T$
