@@ -12,7 +12,7 @@ Steepest Descent is an iterative optimization method used to find the minimum of
 * $\alpha$: The learning rate.
 * $\nabla f(x_k)$: The gradient.
 
-![](./Optimization/1_Steepest_descent/Steepest_descent_contour.gif)
+![](https://github.com/Twallett/Machine-Learning/blob/main/Optimization/1_Steepest_descent/Steepest_descent_contour.gif)
 
 ![](./Optimization/1_Steepest_descent/Steepest_descent_surface.gif)
 
