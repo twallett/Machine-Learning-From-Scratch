@@ -2,6 +2,10 @@
 
 This subdirectory includes implementations and explanations of various optimization techniques commonly used in machine learning.
 
+Each optimization technique in this subdirectory is explained in detail along with code examples.
+
+For a deeper understanding of each method, refer to the corresponding folders in this directory.
+
 ## 1. Steepest Descent
 
 Steepest Descent is an iterative optimization method used to find the minimum of a function. It involves moving in the direction of the negative gradient.
@@ -98,10 +102,6 @@ The Conjugate Gradient method is used to solve unconstrained optimization proble
     </td>
   </tr>
 </table>
-
-Each optimization technique in this subdirectory is explained in detail along with code examples.
-
-For a deeper understanding of each method, refer to the corresponding folders in this directory.
 
 ## References 
 
