@@ -12,19 +12,25 @@ The Perceptron is a fundamental neural network model for binary classification. 
 
 # $W^{new} = W^{old} + e \cdot p^T$
 # $b^{new} = b^{old} + e$
-# where $e = t - a$
+# $where e = t - a$
 
 ## 2. ADALINE (Adaptive Linear Neuron)
 
 ADALINE is an improvement over the Perceptron, utilizing a continuous activation function and an adaptive weight adjustment mechanism.
 
-Equation for ADALINE's output: 
+# $a = purelin(W \cdot p + b)
 
-$y = \sum_{i=1}^{n} w_i x_i + b$
+# $W_{k+1} = W_{k} - 2 \alpha e_{k} \cdot p_{k}^T$
+# $b_{k+1} = b_{k} - 2 \alpha e_{k}$
 
 ## 3. MLP Regressor (Multi-Layer Perceptron Regressor)
 
 The MLP Regressor is a type of neural network used for regression tasks. It consists of multiple layers of neurons, including input, hidden, and output layers.
+
+# $Forward propagation: a^{m+1} = f^{m+1}(W^{m+1} \cdot a + b^{m+1})$
+
+# $Backward propagation:$
+
 
 ## 4. MLP Classifier (Multi-Layer Perceptron Classifier)
 
