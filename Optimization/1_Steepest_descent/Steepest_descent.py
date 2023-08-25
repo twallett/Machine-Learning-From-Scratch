@@ -171,6 +171,6 @@ ax2.legend(loc = 1)
 anim1 = animation.FuncAnimation(fig2, animate_2, init_func=init_2, frames=len(x_k), interval=20,repeat_delay=60, blit=True)
 plt.show()
 
-anim1.save('Steepest_descent_surface.gif', writer='ffmpeg', fps =10)
+anim1.save('Steepest_descent_surface.gif', writer='ffmpeg', fps =30)
 
 #%%
