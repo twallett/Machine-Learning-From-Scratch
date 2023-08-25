@@ -37,6 +37,17 @@ Linear Minimization is an optimization technique that involves finding the minim
 * $\nabla f(x_k)$: The gradient.
 * $H_f(x_k)$: The Hessian.
 
+<table>
+  <tr>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/Optimization/1_Steepest_descent/Steepest_descent_contour.gif" alt="First GIF" width="100%">
+    </td>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/Optimization/1_Steepest_descent/Steepest_descent_surface.gif" alt="Second GIF" width="100%">
+    </td>
+  </tr>
+</table>
+
 ## 3. Newton's Method
 
 Newton's Method is an iterative optimization algorithm that uses second-order derivatives to find the minimum of a function more efficiently than gradient descent.
