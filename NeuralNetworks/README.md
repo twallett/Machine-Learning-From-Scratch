@@ -6,6 +6,10 @@ This subdirectory contains implementations and explanations of different neural 
 
 The Perceptron is a fundamental neural network model for binary classification. It's based on the concept of weighted inputs and a threshold activation function.
 
+# n = W \cdot p + b
+
+#### $hardlim(n) = \begin{cases} 0 & if \ \ n < 0\\ 1 & if \ \ n \geq 0 \end{cases}$
+
 # $a = hardlim(W \cdot p + b)$
 
 # $W^{new} = W^{old} + e \cdot p^T$
