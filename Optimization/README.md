@@ -45,7 +45,7 @@ The Conjugate Gradient method is used to solve unconstrained optimization proble
 
 # $x_{k+1} = x_k + \alpha_k p_k$
 
-# $\beta_k = \frac{\nabla f(x_k).T \cdot \nabla f(x_k)}{\nabla f(x_{k-1}).T \cdot \nabla f(x_{k-1})}$
+# $\beta_k = \frac{\nabla f(x_k)^T \cdot \nabla f(x_k)}{\nabla f(x_{k-1})^T \cdot \nabla f(x_{k-1})}$
 
 # $p_k = -\nabla f(x_k) + \beta_k \cdot p_{k-1}$
 
