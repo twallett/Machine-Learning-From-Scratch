@@ -74,17 +74,30 @@ Newton's Method is an iterative optimization algorithm that uses second-order de
 
 The Conjugate Gradient method is used to solve unconstrained optimization problems. It's particularly effective for large-scale optimization tasks.
 
-# $\alpha_k = - \frac{\nabla f(x_k)^T \cdot p_k} {p_k^T \cdot  H_f(x_k) \cdot p_k} $
+# $\alpha_k = - \frac{\nabla f(\theta_{k})^T \cdot p_k} {p_k^T \cdot  H_f(\theta_{k}) \cdot p_k} $
 
-# $x_{k+1} = x_k + \alpha_k p_k$
+# $\theta_{k+1} = \theta_{k} + \alpha_k p_k$
 
-# $\beta_k = \frac{\nabla f(x_k)^T \cdot \nabla f(x_k)}{\nabla f(x_{k-1})^T \cdot \nabla f(x_{k-1})}$
+# $\beta_k = \frac{\nabla f(\theta_{k})^T \cdot \nabla f(\theta_{k})}{\nabla f(\theta_{k-1})^T \cdot \nabla f(\theta_{k-1})}$
 
-# $p_k = -\nabla f(x_k) + \beta_k \cdot p_{k-1}$
+# $p_k = -\nabla f(\theta_{k}) + \beta_k \cdot p_{k-1}$
 
-* $x_k$: The initial condition.
+* $\theta_{k}$: The initial condition.
 * $\alpha$: The learning rate.
-* $p_k$: The search direction, or $-\nabla f(x_k)$
+* $p_k$: The search direction, or $-\nabla f(\theta_{k})$
+* $H_f(\theta_{k})$: The Hessian.
+* $\beta_k$: The Fletcher and Reeves beta.
+
+<table>
+  <tr>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/Optimization/4_Conjugate_method/Conjugate_method_contour.gif" alt="First GIF" width="100%">
+    </td>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/Optimization/4_Conjugate_method/Conjugate_method_surface.gif" alt="Second GIF" width="100%">
+    </td>
+  </tr>
+</table>
 
 Each optimization technique in this subdirectory is explained in detail along with code examples.
 
