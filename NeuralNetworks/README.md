@@ -29,6 +29,16 @@ The Perceptron is a fundamental neural network model for binary classification. 
     </td>
   </tr>
 </table>
+<table>
+  <tr>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/NeuralNetworks/1_Perceptron/Perceptron_classification.gif" alt="First GIF" width="100%">
+    </td>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/NeuralNetworks/1_Perceptron/Perceptron_classification_XOR.gif" alt="Second GIF" width="100%">
+    </td>
+  </tr>
+</table>
 
 ## 2. ADALINE (Adaptive Linear Neuron)
 
