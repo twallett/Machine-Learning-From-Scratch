@@ -48,6 +48,17 @@ ADALINE is an improvement over the Perceptron, utilizing a continuous activation
 # $W_{k+1} = W_{k} - 2 \alpha e_{k} \cdot p_{k}^T$
 # $b_{k+1} = b_{k} - 2 \alpha e_{k}$
 
+<table>
+  <tr>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/NeuralNetworks/2_ADALINE/ADALINE_classification.gif" alt="First GIF" width="100%">
+    </td>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/NeuralNetworks/2_ADALINE/ADALINE_sse.png" alt="Second GIF" width="100%">
+    </td>
+  </tr>
+</table>
+
 ## 3. MLP Regressor (Multi-Layer Perceptron Regressor)
 
 The MLP Regressor is a type of neural network used for regression tasks. It consists of multiple layers of neurons, including input, hidden, and output layers.
