@@ -39,8 +39,8 @@ The MLP Regressor is a type of neural network used for regression tasks. It cons
 # $s^{M} = F^{M} \cdot (n^{M}) \cdot e$
 # $s^{m} = F^{m} \cdot (n^{m}) \cdot (W^{m+1^{T}}) \cdot s^{m+1}$
 
-# $W_{k+1}^m = W_{k}^m - \alpha s^m \cdot (a_{m-1}^T)$
-# $b_{k+1} = b_{k} - \alpha s^m$
+# $W_{k+1}^m = W_{k}^m - \alpha s^m \cdot (a^{{m-1}^T})$
+# $b_{k+1}^m = b_{k}^m - \alpha s^m$
 
 ## 4. MLP Classifier (Multi-Layer Perceptron Classifier)
 
