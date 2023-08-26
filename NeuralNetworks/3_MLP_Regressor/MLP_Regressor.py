@@ -6,6 +6,7 @@ import math
 def f(x):
     return 1 + np.sin((math.pi/4) * x) 
 
+function_latex = "$f(x) = 1 + sin(\\frac{\pi}{4}x)$"
 inputs = np.linspace(-2,2).reshape(-1,1)
 targets = f(np.linspace(-2,2)).reshape(-1,1)
 #%%
@@ -104,16 +105,43 @@ predictions = MLP_Regressor_Test(inputs,
 
 # %%
 
-plt.plot(error)
-plt.show()
-# %%
-
-plt.plot(np.concatenate(predictions))
 plt.plot(targets)
+plt.ylabel('$Y$')
+plt.xlabel('$X$')
+plt.title(f"MLP Regressor of underlying function {function_latex}")
+plt.tight_layout()
+plt.savefig("MLP_Regressor_target.png")
+plt.show()
+# %%
+
+plt.plot(targets, label = 'Target')
+plt.plot(np.concatenate(predictions), label = 'Predictions')
+plt.legend()
+plt.ylabel('$Y$')
+plt.xlabel('$X$')
+plt.title(f"MLP Regressor of {function_latex}")
+plt.savefig("MLP_Regressor_target_predictions.png")
 plt.show()
 
 # %%
 
+plt.plot(error)
+plt.ylabel('SSE')
+plt.xlabel('Iterations')
+plt.title("MLP Regressor sum of squared errors")
+plt.savefig("MLP_Regressor_sse.png")
+plt.show()
+
+# %%
+
+x = np.linspace(0, 2, 100)
+y = x
+
+plt.plot(x, y, label='y = x', color='black')
 plt.scatter(predictions, targets)
+plt.ylabel('$y$')
+plt.xlabel('$a^M$')
+plt.title("MLP Regressor scatterplot of targets vs. predictions")
+plt.savefig("MLP_Regressor_target_scatter.png")
 plt.show()
 # %%

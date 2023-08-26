@@ -14,4 +14,8 @@
 
 # $s^{m} = F^{m} \cdot (n^{m}) \cdot (W^{m+1^{T}}) \cdot s^{m+1}$
 
+#%% [markdown]
+
+# $f(x) = 1 + sin(\frac{\pi}{4}x)$
+
 # %%

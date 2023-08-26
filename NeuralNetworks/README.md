@@ -73,6 +73,25 @@ The MLP Regressor is a type of neural network used for regression tasks. It cons
 # $W_{k+1}^m = W_{k}^m - \alpha s^m \cdot (a^{{m-1}^T})$
 # $b_{k+1}^m = b_{k}^m - \alpha s^m$
 
+<table>
+  <tr>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/NeuralNetworks/3_MLP_Regressor/MLP_Regressor_target.png" alt="First GIF" width="100%">
+    </td>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/NeuralNetworks/3_MLP_Regressor/MLP_Regressor_target_predictions.png" alt="Second GIF" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/NeuralNetworks/3_MLP_Regressor/MLP_Regressor_sse.png" alt="Third GIF" width="100%">
+    </td>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/NeuralNetworks/3_MLP_Regressor/MLP_Regressor_target_scatter.png" alt="Fourth GIF" width="100%">
+    </td>
+  </tr>
+</table>
+
 ## 4. MLP Classifier (Multi-Layer Perceptron Classifier)
 
 The MLP Classifier is used for multiclass classification. It extends the MLP Regressor by using appropriate activation functions and output encoding.
