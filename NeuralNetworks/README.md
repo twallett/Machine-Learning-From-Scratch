@@ -115,6 +115,17 @@ The MLP Classifier is used for multiclass classification. It extends the MLP Reg
 # $W_{k+1}^m = W_{k}^m - \alpha s^m \cdot (a^{{m-1}^T})$
 # $b_{k+1}^m = b_{k}^m - \alpha s^m$
 
+<table>
+  <tr>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/NeuralNetworks/4_MLP_Classifier/MLP_Classifier.gif" alt="First GIF" width="100%">
+    </td>
+    <td style="width: 50%;">
+      <img src="https://github.com/Twallett/Machine-Learning/blob/main/NeuralNetworks/4_MLP_Classifier/MLP_Classifier_loss.png" alt="Second GIF" width="100%">
+    </td>
+  </tr>
+</table>
+
 ## References 
 
 Oklahoma State University–Stillwater. (n.d.). https://hagan.okstate.edu/NNDesign.pdf 
