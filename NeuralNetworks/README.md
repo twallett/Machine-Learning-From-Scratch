@@ -14,7 +14,7 @@ The Perceptron is a fundamental neural network model for binary classification. 
 # $n = W \cdot p + b$
 # $a = hardlim(n)$
 
-# $Backpropagation \ \& \ Weight \ updates:$
+# $Weight \ updates:$
 # $W^{new} = W^{old} + e \cdot p^T$
 # $b^{new} = b^{old} + e$
 # $where \ e = t - a$
@@ -46,7 +46,7 @@ ADALINE is an improvement over the Perceptron, utilizing a continuous activation
 # $Forwardpropagation:$
 # $a = purelin(W \cdot p + b)$
 
-# $Backpropagation \ \& \ Weight \ updates:$
+# $Weight \ updates:$
 # $W_{k+1} = W_{k} - 2 \alpha e_{k} \cdot p_{k}^T$
 # $b_{k+1} = b_{k} - 2 \alpha e_{k}$
 
