@@ -64,12 +64,15 @@ ADALINE is an improvement over the Perceptron, utilizing a continuous activation
 The MLP Regressor is a type of neural network used for regression tasks. It consists of multiple layers of neurons, including input, hidden, and output layers.
 
 # $Forward propagation:$
+# $a^0 = p$
 # $a^{m+1} = f^{m+1}(W^{m+1} \cdot a^m + b^{m+1})\ for \ m = 0, 1, ..., M-1$
+# $a = a^M$
 
 # $Backward propagation:$
 # $s^{M} = F^{M} \cdot (n^{M}) \cdot e$
-# $s^{m} = F^{m} \cdot (n^{m}) \cdot (W^{m+1^{T}}) \cdot s^{m+1}$
+# $s^{m} = F^{m} \cdot (n^{m}) \cdot (W^{m+1^{T}}) \cdot s^{m+1} \ for \ m = M-1, ..., 2, 1$
 
+# $Weight updates:$
 # $W_{k+1}^m = W_{k}^m - \alpha s^m \cdot (a^{{m-1}^T})$
 # $b_{k+1}^m = b_{k}^m - \alpha s^m$
 
@@ -97,7 +100,18 @@ The MLP Regressor is a type of neural network used for regression tasks. It cons
 The MLP Classifier is used for multiclass classification. It extends the MLP Regressor by using appropriate activation functions and output encoding.
 
 # $Forward propagation:$
-# $a^{m+1} = f^{m+1}(W^{m+1} \cdot a^m + b^{m+1}) \ for \ m = 0, 1, ..., M-1$
+# $a^0 = p$
+# $a^{m+1} = f^{m+1}(W^{m+1} \cdot a^m + b^{m+1}) \ for \ m = 0, 1, ..., M-2$
+# $a^M = softmax(W^{m+1} \cdot a^{M-1} + b^{m+1})\ for \ m = M-1
+# $a = a^M$
+
+# $Backward propagation:$
+# $s^{M} = a - t
+# $s^{m} = F^{m} \cdot (n^{m}) \cdot (W^{m+1^{T}}) \cdot s^{m+1} \ for \ m = M-1, ..., 2, 1$
+
+# $Weight updates:$
+# $W_{k+1}^m = W_{k}^m - \alpha s^m \cdot (a^{{m-1}^T})$
+# $b_{k+1}^m = b_{k}^m - \alpha s^m$
 
 ## References 
 
