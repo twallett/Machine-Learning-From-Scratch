@@ -12,6 +12,6 @@
 ## $\text{hardlim}(n) = \begin{cases} 0 & \text{if } n < 0 \\ 1 & \text{if } n \geq 0 \end{cases}$
 
 
-# $\{a\}$
+# $s^{m} = F^{m} \cdot (n^{m}) \cdot (W^{m+1^{T}}) \cdot s^{m+1}$
 
 # %%

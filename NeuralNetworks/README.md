@@ -37,7 +37,7 @@ The MLP Regressor is a type of neural network used for regression tasks. It cons
 
 # $Backward propagation:$
 # $s^{M} = F^{M} \cdot (n^{M}) \cdot e$
-# $s^{m} = F^{m} \cdot (n^{m}) \cdot (W^{m+1}^T) \cdot s^{m+1}$
+# $s^{m} = F^{m} \cdot (n^{m}) \cdot (W^{m+1^{T}}) \cdot s^{m+1}$
 
 # $W_{k+1}^m = W_{k}^m - \alpha s^m \cdot (a_{m-1}^T)$
 # $b_{k+1} = b_{k} - \alpha s^m$
