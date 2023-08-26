@@ -16,9 +16,9 @@ plt.scatter(p[0, :2], p[1, :2], marker='s')
 plt.scatter(p[0, 2:4], p[1, 2:4], marker='o')
 plt.scatter(p[0, 4:6], p[1, 4:6], marker='x')
 plt.scatter(p[0, 6:8], p[1, 6:8], marker='P')
-plt.ylabel('X2')
-plt.xlabel('X1')
-plt.title('X2 vs. X1')
+plt.ylabel('$Y$')
+plt.xlabel('$X$')
+plt.title('ADALINE')
 plt.show()
 
 #%%
@@ -54,47 +54,14 @@ w_h, b_h, w, b, e_list = adaline(p, t, 0.04, 50)
 # -------------------------------------------------
 # Calculate the sum square error and plot it
 
-e_list_sq = np.array(e_list) ** 2
+e_list_sq = np.concatenate(np.array(e_list) ** 2)
 
-fig= plt.figure() 
+plt.plot(e_list_sq)
 
-axis = plt.axes(xlim =(0, len(e_list_sq)), 
-                ylim =(-2, 4))
-
-line, = axis.plot([], [], lw = 3) 
-line2, = axis.plot([], [], lw = 3, label='y2')
-
-def init(): 
-    line.set_data([], [])
-    line2.set_data([], [])
-    return line, line2,
-
-def animate(i):
-    
-    x = np.linspace(1, i, i)
-    
-    y = e_list_sq[:i, 0]
-    y2 = e_list_sq[:i, 1]
-    
-    line.set_data(x, y)
-    line2.set_data(x, y2)
-    
-    return line, line2
-
-plt.legend(['X1', 'X2'])
-plt.ylabel("Sum of squared errors")
+plt.ylabel("SSE")
 plt.xlabel("Iterations")
-plt.title("Sum of squared errors plot")
-plt.show()
-
-anim = FuncAnimation(fig, animate, init_func = init, frames=len(e_list_sq))
-
-anim.save('ADALINE_sumofsquarederror.gif', writer='ffmpeg', fps =20)
-
-plt.legend(['X1', 'X2'])
-plt.ylabel("Sum of squared errors")
-plt.xlabel("Iterations")
-plt.title("Sum of squared errors plot")
+plt.title("ADALINE sum of squared errors")
+plt.savefig("ADALINE_sse.png")
 plt.show()
 
 # %%
@@ -122,10 +89,10 @@ def animate(i):
     ax.set_xlim([-4, 4])
     ax.set_ylim([-4, 4])
     
-    plt.scatter(p[0, :2], p[1, :2], marker='s')
-    plt.scatter(p[0, 2:4], p[1, 2:4], marker='o')
-    plt.scatter(p[0, 4:6], p[1, 4:6], marker='x')
-    plt.scatter(p[0, 6:8], p[1, 6:8], marker='P')
+    plt.scatter(p[0, :2], p[1, :2], marker='s', label = 'Class 1')
+    plt.scatter(p[0, 2:4], p[1, 2:4], marker='o', label = 'Class 2')
+    plt.scatter(p[0, 4:6], p[1, 4:6], marker='x', label = 'Class 3')
+    plt.scatter(p[0, 6:8], p[1, 6:8], marker='P', label = 'Class 4')
     
     w_h1, w_h2 = w_h[i][0], w_h[i][1]
     b_h1, b_h2 = b_h[i][0], b_h[i][1]
@@ -144,9 +111,10 @@ def animate(i):
     ax.add_artist(quiver_2)
     ax.axline((0, db2_int), slope=db2_slope)
     
-    plt.ylabel('X2')
-    plt.xlabel('X1')
-    plt.title('X2 vs. X1')
+    plt.ylabel('$Y$')
+    plt.xlabel('$X$')
+    plt.title('ADALINE')
+    plt.legend(loc = 'upper right')
     
     return quiver_1, quiver_2,
 
@@ -154,8 +122,7 @@ anim = FuncAnimation(fig, animate, frames=160)
 
 anim.save('ADALINE_classification.gif', writer='ffmpeg', fps =10)
 
-plt.ylabel('X2')
-plt.xlabel('X1')
-plt.title('X2 vs. X1')
-
+plt.ylabel('$Y$')
+plt.xlabel('$X$')
+plt.title('ADALINE')
 # %%

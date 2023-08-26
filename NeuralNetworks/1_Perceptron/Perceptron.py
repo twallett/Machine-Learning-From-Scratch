@@ -46,10 +46,12 @@ weight, bias, error_list = perceptron(inputs,labels, 10)
 
 #Error vs. epochs
 plt.plot(np.array(error_list) ** 2)
-plt.title("Error vs. epochs")
-plt.xlabel("Epochs")
-plt.ylabel("Error")
+plt.title("Perceptron sum of squared errors")
+plt.xlabel("Iterations")
+plt.ylabel("SSE")
+plt.savefig('Perceptron_sse.png')
 plt.show()
+
 
 # %%
 
@@ -65,7 +67,7 @@ p2_label_1 = p2[8:]
 fig, ax = plt.subplots()
 plt.scatter(p1_label_0, p2_label_0, c='blue', label='0')
 plt.scatter(p1_label_1, p2_label_1, c='orange', label= '1')
-plt.title("Perceptron decision boundary")
+plt.title("Perceptron")
 plt.xlabel("X1")
 plt.ylabel("X2")
 plt.legend()
@@ -97,7 +99,7 @@ def animate(i):
     ax.add_artist(quiver_1)
     ax.axline((1, db_1), slope=db_slope)
     
-    plt.title("Perceptron decision boundary")
+    plt.title("Perceptron")
     plt.xlabel("$X$")
     plt.ylabel("$Y$")
     plt.legend(loc = 'upper right')
@@ -121,9 +123,10 @@ weight, bias, error_list = perceptron(inputs,labels, 10)
 
 #Error vs. epochs
 plt.plot(np.array(error_list) ** 2)
-plt.title("Error vs. epochs")
-plt.xlabel("Epochs")
-plt.ylabel("Error")
+plt.title("Perceptron XOR sum of squared errors")
+plt.xlabel("Iterations")
+plt.ylabel("SSE")
+plt.savefig('Perceptron_sse_XOR.png')
 plt.show()
 
 # %%
@@ -140,7 +143,7 @@ p2_label_1 = np.concatenate([p2[4:8], p2[12:]])
 fig, ax = plt.subplots()
 plt.scatter(p1_label_0, p2_label_0, c='blue', label='0')
 plt.scatter(p1_label_1, p2_label_1, c='orange', label= '1')
-plt.title("Perceptron decision boundary")
+plt.title("Perceptron XOR problem")
 plt.xlabel("X1")
 plt.ylabel("X2")
 plt.legend()
@@ -172,7 +175,7 @@ def animate(i):
     ax.add_artist(quiver_1)
     ax.axline((1, db_1), slope=db_slope)
     
-    plt.title("Perceptron decision boundary")
+    plt.title("Perceptron XOR problem")
     plt.xlabel("$X$")
     plt.ylabel("$Y$")
     plt.legend(loc = 'upper right')
