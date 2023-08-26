@@ -14,7 +14,7 @@ The Perceptron is a fundamental neural network model for binary classification. 
 # $n = W \cdot p + b$
 # $a = hardlim(n)$
 
-# $Backpropagation \ & \ Weight \ updates:$
+# $Backpropagation \ \text{&} \ Weight \ updates:$
 # $W^{new} = W^{old} + e \cdot p^T$
 # $b^{new} = b^{old} + e$
 # $where \ e = t - a$
