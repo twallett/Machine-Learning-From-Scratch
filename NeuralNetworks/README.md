@@ -102,11 +102,11 @@ The MLP Classifier is used for multiclass classification. It extends the MLP Reg
 # $Forward propagation:$
 # $a^0 = p$
 # $a^{m+1} = f^{m+1}(W^{m+1} \cdot a^m + b^{m+1}) \ for \ m = 0, 1, ..., M-2$
-# $a^M = softmax(W^{m+1} \cdot a^{M-1} + b^{m+1})\ for \ m = M-1
+# $a^M = softmax(W^{m+1} \cdot a^{M-1} + b^{m+1})\ for \ m = M-1$
 # $a = a^M$
 
 # $Backward propagation:$
-# $s^{M} = a - t
+# $s^{M} = a - t$
 # $s^{m} = F^{m} \cdot (n^{m}) \cdot (W^{m+1^{T}}) \cdot s^{m+1} \ for \ m = M-1, ..., 2, 1$
 
 # $Weight updates:$
