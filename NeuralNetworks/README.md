@@ -10,9 +10,10 @@ For a detailed exploration of each algorithm, refer to the corresponding folders
 
 The Perceptron is a fundamental neural network model for binary classification. It's based on the concept of weighted inputs and a threshold activation function.
 
-### $Forwardpropagation:$
+### <u>$Forwardpropagation:$</u>
 ### $n = W \cdot p + b$
 ### $a = hardlim(n)$
+
 
 ### $Weight \ updates:$
 ### $W^{new} = W^{old} + e \cdot p^T$
