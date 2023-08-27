@@ -72,7 +72,7 @@ ADALINE is a significant improvement over the Perceptron, as it utilizes a conti
 
 * $W_{k}$: The weight matrix at iteration $k$.
 * $W_{k+1}$: The weight matrix at iteration $k+1$.
-* $alpha$: The learning rate.
+* $\alpha$: The learning rate.
 * $b_{k}$: The bias vector at iteration $k$.
 * $b_{k+1}$: The bias vector at iteration $k+1$.
 * $e$: The error vector at iteration $k$.
@@ -126,7 +126,7 @@ The MLP Regressor is a type of neural network used for regression tasks. It cons
 * $W_{k+1}$: The weight matrix at iteration $k+1$.
 * $s^m$: The sensitivity of layer $m$.
 * $a^{{m-1}^T}$: The output of layer $m-1$ transposed.
-* $alpha$: The learning rate.
+* $\alpha$: The learning rate.
 * $b_{k}$: The bias vector at iteration $k$.
 * $b_{k+1}$: The bias vector at iteration $k+1$.
 
@@ -189,7 +189,7 @@ The MLP Classifier is used for multiclass classification. It extends the MLP Reg
 * $W_{k+1}$: The weight matrix at iteration $k+1$.
 * $s^m$: The sensitivity of layer $m$.
 * $a^{{m-1}^T}$: The output of layer $m-1$.
-* $alpha$: The learning rate.
+* $\alpha$: The learning rate.
 * $b_{k}$: The bias vector at iteration $k$.
 * $b_{k+1}$: The bias vector at iteration $k+1$.
 
