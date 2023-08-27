@@ -97,13 +97,38 @@ The MLP Regressor is a type of neural network used for regression tasks. It cons
 ### $a^{m+1} = f^{m+1}(W^{m+1} \cdot a^m + b^{m+1})\ for \ m = 0, 1, ..., M-1$
 ### $a = a^M$
 
+* $p$: The input vector.
+* $a^m$: The output vector of layer $m$.
+* $W^{m+1}$: The weight matrix of layer $m+1$.
+* $b^{m+1}$: The bias vector of layer $m+1$.
+* $f^{m+1}()$: The activation function of layer $m+1$.
+* $a$: The output vector.
+
 ### $\underline{Backpropagation}:$
 ### $s^{M} = F^{M} \cdot (n^{M}) \cdot e$
 ### $s^{m} = F^{m} \cdot (n^{m}) \cdot (W^{m+1^{T}}) \cdot s^{m+1} \ for \ m = M-1, ..., 2, 1$
 
+* $s^{M}$: The sensitivity of output layer.
+* $F^{M}$: The derivative of the activation function of output layer.
+* $n^{M}$: The input vector of output layer.
+* $e$: The error vector.
+* $s^{m}$: The sensitivity of layer $m$.
+* $F^{m}$: The derivative of the activation function of layer $m$.
+* $n^{m}$: The input vector of layer $m$.
+* $W^{m+1^{T}}$: The weight matrix of layer $m+1$ transposed.
+* $s^{m+1}$: The sensitivity of layer {m+1}.
+
 ### $\underline{Weight \ updates}:$
 ### $W_{k+1}^m = W_{k}^m - \alpha s^m \cdot (a^{{m-1}^T})$
 ### $b_{k+1}^m = b_{k}^m - \alpha s^m$
+
+* $W_{k}$: The weight matrix at iteration $k$.
+* $W_{k+1}$: The weight matrix at iteration $k+1$.
+* $s^m$: The sensitivity of layer $m$.
+* $a^{{m-1}^T}$: The output of layer $m-1$ transposed.
+* $alpha$: The learning rate.
+* $b_{k}$: The bias vector at iteration $k$.
+* $b_{k+1}$: The bias vector at iteration $k+1$.
 
 <table>
   <tr>
@@ -134,13 +159,39 @@ The MLP Classifier is used for multiclass classification. It extends the MLP Reg
 ### $a^M = softmax(W^{m+1} \cdot a^{M-1} + b^{m+1})\ for \ m = M-1$
 ### $a = a^M$
 
+* $p$: The input vector.
+* $a^m$: The output vector of layer $m$.
+* $W^{m+1}$: The weight matrix of layer $m+1$.
+* $b^{m+1}$: The bias vector of layer $m+1$.
+* $f^{m+1}()$: The activation function of layer $m+1$.
+* $a^{M-1}$: The output vector of output layer $M-1$.
+* $softmax()$: The softmax activation function.
+* $a$: The output vector.
+
 ### $\underline{Backpropagation}:$
 ### $s^{M} = a - t$
 ### $s^{m} = F^{m} \cdot (n^{m}) \cdot (W^{m+1^{T}}) \cdot s^{m+1} \ for \ m = M-1, ..., 2, 1$
 
+* $s^{M}$: The sensitivity of output layer.
+* $t$: The target class vector.
+* $e$: The error vector.
+* $s^{m}$: The sensitivity of layer $m$.
+* $F^{m}$: The derivative of the activation function of layer $m$.
+* $n^{m}$: The input vector of layer $m$.
+* $W^{m+1^{T}}$: The weight matrix of layer $m+1$ transposed.
+* $s^{m+1}$: The sensitivity of layer {m+1}.
+
 ### $\underline{Weight \ updates}:$
 ### $W_{k+1}^m = W_{k}^m - \alpha s^m \cdot (a^{{m-1}^T})$
 ### $b_{k+1}^m = b_{k}^m - \alpha s^m$
+
+* $W_{k}$: The weight matrix at iteration $k$.
+* $W_{k+1}$: The weight matrix at iteration $k+1$.
+* $s^m$: The sensitivity of layer $m$.
+* $a^{{m-1}^T}$: The output of layer $m-1$.
+* $alpha$: The learning rate.
+* $b_{k}$: The bias vector at iteration $k$.
+* $b_{k+1}$: The bias vector at iteration $k+1$.
 
 <table>
   <tr>
