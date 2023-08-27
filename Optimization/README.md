@@ -10,7 +10,7 @@ For a deeper understanding of each method, refer to the corresponding folders in
 
 Steepest Descent is an iterative optimization method used to find the minimum of a function. It involves moving in the direction of the negative gradient.
 
-# $\theta_{k+1} = \theta_{k} - \alpha \nabla f({\theta_{k}})$
+### $\theta_{k+1} = \theta_{k} - \alpha \nabla f({\theta_{k}})$
 
 * $\theta_{k}$: The initial condition.
 * $\alpha$: The learning rate.
@@ -31,9 +31,9 @@ Steepest Descent is an iterative optimization method used to find the minimum of
 
 Linear Minimization is an optimization technique that involves finding the minimum of a linear objective function subject to linear constraints.
 
-# $\alpha_k = - \frac{\nabla f(\theta_{k})^T \cdot p_k} {p_k^T \cdot  H_f(\theta_{k}) \cdot p_k} $
+### $\alpha_k = - \frac{\nabla f(\theta_{k})^T \cdot p_k} {p_k^T \cdot  H_f(\theta_{k}) \cdot p_k} $
 
-# $\theta_{k+1} = \theta_{k} - \alpha \nabla f(\theta_{k})$
+### $\theta_{k+1} = \theta_{k} - \alpha \nabla f(\theta_{k})$
 
 * $\alpha$: The learning rate.
 * $\theta_{k}$: The initial condition.
@@ -56,7 +56,7 @@ Linear Minimization is an optimization technique that involves finding the minim
 
 Newton's Method is an iterative optimization algorithm that uses second-order derivatives to find the minimum of a function more efficiently than gradient descent.
 
-# $\theta_{k+1} = \theta_{k} - (H_f(\theta_{k})^{-1} \cdot \nabla f(\theta_{k}))$
+### $\theta_{k+1} = \theta_{k} - (H_f(\theta_{k})^{-1} \cdot \nabla f(\theta_{k}))$
 
 * $\theta_{k}$: The initial condition.
 * $\alpha$: The learning rate.
@@ -78,13 +78,13 @@ Newton's Method is an iterative optimization algorithm that uses second-order de
 
 The Conjugate Gradient method is used to solve unconstrained optimization problems. It's particularly effective for large-scale optimization tasks.
 
-# $\alpha_k = - \frac{\nabla f(\theta_{k})^T \cdot p_k} {p_k^T \cdot  H_f(\theta_{k}) \cdot p_k} $
+### $\alpha_k = - \frac{\nabla f(\theta_{k})^T \cdot p_k} {p_k^T \cdot  H_f(\theta_{k}) \cdot p_k} $
 
-# $\theta_{k+1} = \theta_{k} + \alpha_k p_k$
+### $\theta_{k+1} = \theta_{k} + \alpha_k p_k$
 
-# $\beta_k = \frac{\nabla f(\theta_{k})^T \cdot \nabla f(\theta_{k})}{\nabla f(\theta_{k-1})^T \cdot \nabla f(\theta_{k-1})}$
+### $\beta_k = \frac{\nabla f(\theta_{k})^T \cdot \nabla f(\theta_{k})}{\nabla f(\theta_{k-1})^T \cdot \nabla f(\theta_{k-1})}$
 
-# $p_k = -\nabla f(\theta_{k}) + \beta_k \cdot p_{k-1}$
+### $p_k = -\nabla f(\theta_{k}) + \beta_k \cdot p_{k-1}$
 
 * $\theta_{k}$: The initial condition.
 * $\alpha$: The learning rate.
