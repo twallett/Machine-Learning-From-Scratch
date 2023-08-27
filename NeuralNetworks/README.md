@@ -8,7 +8,7 @@ For a detailed exploration of each algorithm, refer to the corresponding folders
 
 ## 1. Perceptron
 
-The Perceptron is a fundamental neural network model for binary classification. It's based on the concept of weighted inputs and a threshold activation function.
+The Perceptron is a fundamental neural network model for solving linearly seperable problems. This neural network architecture was developed in the late 1950's and is characterized by having weighted inputs and a threshold activation function. Another key feature is its decision boundary, a line, that is fast and reliable for the class of problems it can solve. A key limitation of this architecture, as evidence by the XOR problem, is, as hinted previously, its inability to solve problems that are not linearly seperable.
 
 ### $\underline{Forwardpropagation}:$
 ### $n = W \cdot p + b$
@@ -55,14 +55,27 @@ The Perceptron is a fundamental neural network model for binary classification. 
 
 ## 2. ADALINE (Adaptive Linear Neuron)
 
-ADALINE is an improvement over the Perceptron, utilizing a continuous activation function and an adaptive weight adjustment mechanism.
+ADALINE is a significant improvement over the Perceptron, as it utilizes a continuous activation function and an adaptive weight adjustment mechanism embedded with the Least Mean Squares (LMS) algorithm. However, the ADALINE still faces the same difficulties as the perceptron given that it cannot solve problems that are not linearly seperable. 
 
 ### $\underline{Forwardpropagation}:$
 ### $a = purelin(W \cdot p + b)$
 
+* $p$: The input vector.
+* $W$: The weight matrix.
+* $b$: The bias vector.
+* $purelin()$: The purelin activation function.
+* $a$: The output vector.
+
 ### $\underline{Weight \ updates}:$
 ### $W_{k+1} = W_{k} - 2 \alpha e_{k} \cdot p_{k}^T$
 ### $b_{k+1} = b_{k} - 2 \alpha e_{k}$
+
+* $W_{k}$: The weight matrix at iteration $k$.
+* $W_{k+1}$: The weight matrix at iteration $k+1$.
+* $alpha$: The learning rate.
+* $b_{k}$: The bias vector at iteration $k$.
+* $b_{k+1}$: The bias vector at iteration $k+1$.
+* $e$: The error vector at iteration $k$.
 
 <table>
   <tr>
