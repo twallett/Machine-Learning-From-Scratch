@@ -131,14 +131,30 @@ print(confusion_matrix(y_test, predictions))
 print(accuracy_score(y_test, predictions))
 # %%
 
-X_test = X_test.reshape((14000,28,28))
+from matplotlib.animation import FuncAnimation
 
-plt.figure(figsize= (6,9))
-for i in range(10):
-    ax = plt.subplot(5, 2, i + 1)
-    plt.imshow(X_test[i])
-    plt.title(f"Truth value: {int(y_test[i])} - prediction: {predictions[i]}")
-    plt.axis('off')
+# Assuming you have X_test, y_test, and predictions
+X_test = X_test.reshape((14000, 28, 28))
+
+fig, ax = plt.subplots()
+ax.set_title("Truth value: - Prediction: ")
+
+def animate(i):
+    ax.clear()
+    ax.imshow(X_test[i])
+    ax.set_title(f"Prediction: {predictions[i]} - Truth value: {int(y_test[i])}")
+    ax.axis('off')
+
+ani = FuncAnimation(fig, animate, frames=50, interval=1000)
+ani.save('MLP_Classifier.gif', writer='ffmpeg')
+
 plt.show()
+#%%
 
+plt.plot(error)
+plt.xlabel("Iterations")
+plt.ylabel("Loss")
+plt.title("MLP Classifier cross-entropy loss")
+plt.savefig("MLP_Classifier_loss.png")
+plt.show()
 # %%

@@ -129,7 +129,3 @@ The MLP Classifier is used for multiclass classification. It extends the MLP Reg
 ## References 
 
 Oklahoma State University–Stillwater. (n.d.). https://hagan.okstate.edu/NNDesign.pdf 
-
-## License
-
-This portion of the project is licensed under the [MIT License](../LICENSE).

@@ -13,7 +13,3 @@ This repository contains implementations of various machine learning algorithms 
 Each subdirectory contains its own set of implementations and explanatory notes. To explore the implementations and learn more about each concept, navigate to the respective subdirectory's README.md file.
 
 Feel free to explore, experiment, and contribute to this machine learning project.
-
-## License
-
-This project is licensed under the [MIT License](./LICENSE).

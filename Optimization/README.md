@@ -106,7 +106,3 @@ The Conjugate Gradient method is used to solve unconstrained optimization proble
 ## References 
 
 Oklahoma State University–Stillwater. (n.d.). https://hagan.okstate.edu/NNDesign.pdf 
-
-## License
-
-This portion of the project is licensed under the [MIT License](../LICENSE).
