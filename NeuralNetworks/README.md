@@ -14,11 +14,24 @@ The Perceptron is a fundamental neural network model for binary classification. 
 ### $n = W \cdot p + b$
 ### $a = hardlim(n)$
 
+* $p$: The input vector.
+* $W$: The weight matrix.
+* $b$: The bias vector.
+* $n$: The net input vector.
+* $hardlim()$: The hardlim activation function.
+* $a$: The output vector.
 
 ### $\underline{Weight \ updates}:$
 ### $W^{new} = W^{old} + e \cdot p^T$
 ### $b^{new} = b^{old} + e$
 ### $where \ e = t - a$
+
+* $W^{old}$: The old weight matrix.
+* $W^{new}$: The new weight matrix.
+* $b^{old}$: The old bias vector.
+* $b^{new}$: The new bias vector.
+* $t$: The target vector.
+* $e$: The error vector.
 
 <table>
   <tr>
