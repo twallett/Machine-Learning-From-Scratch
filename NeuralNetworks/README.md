@@ -116,7 +116,7 @@ The MLP Regressor is a type of neural network used for regression tasks. It cons
 * $F^{m}$: The derivative of the activation function of layer $m$.
 * $n^{m}$: The input vector of layer $m$.
 * $W^{m+1^{T}}$: The weight matrix of layer $m+1$ transposed.
-* $s^{m+1}$: The sensitivity of layer {m+1}.
+* $s^{m+1}$: The sensitivity of layer $m+1$.
 
 ### $\underline{Weight \ updates}:$
 ### $W_{k+1}^m = W_{k}^m - \alpha s^m \cdot (a^{{m-1}^T})$
