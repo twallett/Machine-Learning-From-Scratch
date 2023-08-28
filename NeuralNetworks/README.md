@@ -90,7 +90,7 @@ ADALINE is a significant improvement over the Perceptron, as it utilizes a conti
 
 ## 3. MLP Regressor (Multi-Layer Perceptron Regressor)
 
-The MLP Regressor is a type of neural network used for regression tasks. It consists of multiple layers of neurons, including input, hidden, and output layers.
+The MLP Regressor's purpose is to serve as a function approximator. The main objective of this neural network architecture is to find an objective function that maps the inputs to its corresponding outputs. In this example, the controlled objective function of the target outputs is $f(x) = 1 + sin(\\frac{\pi}{4}x)$ and the function of the MLP regressor is to approximate such by adjusting its weights and biases correspondingly.
 
 ### $\underline{Forwardpropagation}:$
 ### $a^0 = p$
@@ -151,7 +151,7 @@ The MLP Regressor is a type of neural network used for regression tasks. It cons
 
 ## 4. MLP Classifier (Multi-Layer Perceptron Classifier)
 
-The MLP Classifier is used for multiclass classification. It extends the MLP Regressor by using appropriate activation functions and output encoding.
+The MLP Classifier's purpose is to identify underlying patterns, or representations, from inputs and classify their corresponding target values correctly. One fundamental characteristic of this neural network architecture is the $softmax()$ activation function of the output layer. This activation function is useful for classification problems given that it exponentiates and normalizes target outputs to create a probability distribution for the target classes. In this example, the number of classes is $10$ (number of digits), and the function of the MLP Classifier is to learn the underlying representations to accurately classify each input to its corresponding target class.
 
 ### $\underline{Forwardpropagation}:$
 ### $a^0 = p$
