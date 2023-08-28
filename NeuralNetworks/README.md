@@ -122,13 +122,13 @@ The MLP Regressor is a type of neural network used for regression tasks. It cons
 ### $W_{k+1}^m = W_{k}^m - \alpha s^m \cdot (a^{{m-1}^T})$
 ### $b_{k+1}^m = b_{k}^m - \alpha s^m$
 
-* $W_{k}$: The weight matrix at iteration $k$.
-* $W_{k+1}$: The weight matrix at iteration $k+1$.
+* $W_{k}^m$: The weight matrix of layer $m$ at iteration $k$.
+* $W_{k+1}^m$: The weight matrix of layer $m$ at iteration $k+1$.
 * $s^m$: The sensitivity of layer $m$.
 * $a^{{m-1}^T}$: The output of layer $m-1$ transposed.
 * $\alpha$: The learning rate.
-* $b_{k}$: The bias vector at iteration $k$.
-* $b_{k+1}$: The bias vector at iteration $k+1$.
+* $b_{k}^m$: The bias vector of layer $m$ at iteration $k$.
+* $b_{k+1}^m$: The bias vector of layer $m$ at iteration $k+1$.
 
 <table>
   <tr>
@@ -185,13 +185,13 @@ The MLP Classifier is used for multiclass classification. It extends the MLP Reg
 ### $W_{k+1}^m = W_{k}^m - \alpha s^m \cdot (a^{{m-1}^T})$
 ### $b_{k+1}^m = b_{k}^m - \alpha s^m$
 
-* $W_{k}$: The weight matrix at iteration $k$.
-* $W_{k+1}$: The weight matrix at iteration $k+1$.
+* $W_{k}^m$: The weight matrix of layer $m$ at iteration $k$.
+* $W_{k+1}^m$: The weight matrix of layer $m$ at iteration $k+1$.
 * $s^m$: The sensitivity of layer $m$.
-* $a^{{m-1}^T}$: The output of layer $m-1$.
+* $a^{{m-1}^T}$: The output of layer $m-1$ transposed.
 * $\alpha$: The learning rate.
-* $b_{k}$: The bias vector at iteration $k$.
-* $b_{k+1}$: The bias vector at iteration $k+1$.
+* $b_{k}^m$: The bias vector of layer $m$ at iteration $k$.
+* $b_{k+1}^m$: The bias vector of layer $m$ at iteration $k+1$.
 
 <table>
   <tr>
