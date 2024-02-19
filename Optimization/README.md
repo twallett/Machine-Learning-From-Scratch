@@ -19,10 +19,10 @@ Stochastic Gradient Descent is an iterative optimization method used to find the
 <table>
   <tr>
     <td style="width: 50%;">
-      <img src="https://github.com/Twallett/Machine-Learning/blob/main/Optimization/1_Steepest_descent/Steepest_descent_contour.gif" alt="First GIF" width="100%">
+      <img src="https://github.com/twallett/Machine-Learning-From-Scratch/blob/main/Optimization/1_SGD/SGD_contour.gif" alt="First GIF" width="100%">
     </td>
     <td style="width: 50%;">
-      <img src="https://github.com/Twallett/Machine-Learning/blob/main/Optimization/1_Steepest_descent/Steepest_descent_surface.gif" alt="Second GIF" width="100%">
+      <img src="https://github.com/twallett/Machine-Learning-From-Scratch/blob/main/Optimization/1_SGD/SGD_surface.gif" alt="Second GIF" width="100%">
     </td>
   </tr>
 </table>
