@@ -29,7 +29,7 @@ plt.show()
 
 # %%
 
-def steepest_descent(function, initial_condition, alpha, n_iter):
+def SGD(function, initial_condition, alpha, n_iter):
     
     hessian_sym = sp.hessian(function, [x,y])
     hessian  = np.array(hessian_sym, dtype= int)
@@ -61,7 +61,7 @@ function = x**2 + y**2
 init = np.array([[3], 
                  [-3]], dtype='float64')
 
-x_k, stationary = steepest_descent(function, init, 0.01, 200)
+x_k, stationary = SGD(function, init, 0.01, 200)
 
 # %%
 
