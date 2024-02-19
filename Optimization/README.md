@@ -6,9 +6,9 @@ Each optimization technique in this subdirectory is explained in detail along wi
 
 For a deeper understanding of each method, refer to the corresponding folders in this directory.
 
-## 1. Steepest Descent
+## 1. Stochastic Gradient Descent (SGD)
 
-Steepest Descent is an iterative optimization method used to find the minimum of a function. It involves moving in the direction of the negative gradient.
+Stochastic Gradient Descent is an iterative optimization method used to find the minimum of a function. It involves moving in the direction of the negative gradient.
 
 ### $\theta_{k+1} = \theta_{k} - \alpha \nabla f({\theta_{k}})$
 
